@@ -1,0 +1,85 @@
+openapi: 3.0.0
+info:
+  title: API de Proveedores
+  version: 1.0.0
+  description: API para gestionar proveedores
+paths:
+  /suppliers:
+    get:
+      summary: Obtener todos los proveedores
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: Crear un nuevo proveedor
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SupplierDTO'
+      responses:
+        '201':
+          description: Proveedor creado correctamente
+  /suppliers/{id}:
+    get:
+      summary: Obtener un proveedor por su ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: ID del proveedor
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Proveedor no encontrado
+    put:
+      summary: Actualizar un proveedor existente
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: ID del proveedor
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SupplierDTO'
+      responses:
+        '200':
+          description: Proveedor actualizado correctamente
+        '404':
+          description: Proveedor no encontrado
+    delete:
+      summary: Eliminar un proveedor existente
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: ID del proveedor
+      responses:
+        '200':
+          description: Proveedor eliminado correctamente
+        '404':
+          description: Proveedor no encontrado
+components:
+  schemas:
+    SupplierDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+      required:
+        - name
