@@ -1,7 +1,6 @@
 
 **Suppliers**
-Este microservicio nos permite realizar todas las transacciones de proveedores.
-El microservicio tiene las siguientes dependencias.
+Este microservicio nos permite realizar todas las transacciones de proveedores, el microservicio contiene las siguientes dependencias.
 
  1. **Express:** Framework web para Node.js utilizado para construir aplicaciones y APIs.
 ***Documentación:*** Express.js
